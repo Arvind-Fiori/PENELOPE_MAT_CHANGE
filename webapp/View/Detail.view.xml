@@ -1,0 +1,304 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    controllerName="arvind.pp.penelope.matchange.Controller.Detail"
+>
+    <Page
+        title="Material Detail "
+        xmlns:core="sap.ui.core"
+        showNavButton="true"
+        navButtonPress="onBack"
+    >
+    <ScrollContainer  width="100%" horizontal="true" vertical="true" focusable="true">
+        <Table
+            id="Detail_WP2"
+            fixedLayout = "false"
+            
+          items="{Detail>/}"
+             
+           
+            alternateRowColors="true"
+        >
+            <headerToolbar>
+                <Toolbar>
+                    <ToolbarSpacer />
+                    <!-- <Button icon="sap-icon://filter" press="onFilter"></Button> -->
+                </Toolbar>
+            </headerToolbar>
+
+            <columns>
+               
+                <Column >
+                    <header>
+                        <Label text="Fabric Name" />
+                    </header>
+                </Column>
+                 <Column >
+                    <header>
+                        <Label text="WOVENS PATTERN IDENT" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="YARN IDENTIFIER" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="YARN REFERENCE" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="YARN MATERIAL CODE" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="Resultant Count" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="SHADE 1" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="SHADE 2" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="SHADE 3" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="TOTAL ENDS" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="ENDS PER REPEAT" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="Yarn percentage" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="Selvedge Included" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="Exact Commercial Count" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="Yarn Material Composition" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="Yarn Description" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="Spinning Process" />
+                    </header>
+                </Column>
+
+              
+            </columns>
+            <items>
+                <ColumnListItem
+                 
+                >
+                    <cells>
+ 
+                    <Label  text="{Detail>WFn}"/>
+                    <Label  text="{Detail>WPi}"/>
+                     <Label  text="{Detail>WI2}"/>
+                 <Label  text="{Detail>WI}"/>
+                  <Label  text="{Detail>WM}"/>
+                   <Label  text="{Detail>WC}"/>
+                    <Label  text="{Detail>WTS1}"/>
+                     <Label  text="{Detail>WTS2}"/>
+
+                     <Label  text="{Detail>WTS3}"/>
+                     <Label  text="{Detail>WTEd}"/>
+                     <Label  text="{Detail>WWepr}"/>
+                     <Label  text="{Detail>WYpr}"/>
+                     <Label  text="{Detail>WSlv}"/>
+                     <Label  text="{Detail>WCcnt}"/>
+                     <Label  text="{Detail>WComp}"/>
+                     <Label  text="{Detail>WYdesc}"/>
+                     <Label  text="{Detail>WSppc}"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+        </ScrollContainer>
+         <Table
+            id="Detail_WP3"
+            
+          
+          items="{Detail>/}"
+             
+           
+            alternateRowColors="true"
+        >
+            <headerToolbar>
+                <Toolbar>
+                    <ToolbarSpacer />
+                    <!-- <Button icon="sap-icon://filter" press="onFilter"></Button> -->
+                </Toolbar>
+            </headerToolbar>
+
+            <columns>
+               
+                <Column >
+                    <header>
+                        <Label text="Fabric Name" />
+                    </header>
+                </Column>
+
+                <Column >
+                    <header>
+                        <Label text="WOVENS PATTERN IDENTIFIER" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="Serial Number" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="YARN IDENTIFIER" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="YARN REFERENCE" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="YARN ENDS" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="GROUP 1" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="GROUP 2" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="GROUP 3" />
+                    </header>
+                </Column>
+                <Column >
+                    <header>
+                        <Label text="GROUP 4" />
+                    </header>
+                </Column>
+              
+            </columns>
+            <items>
+                <ColumnListItem
+                  
+                >
+                    <cells>
+ 
+                     <Label  text="{Detail>ZW_FN}"/>
+                     <Label  text="{Detail>ZW_PI}"/>
+                     <Label  text="{Detail>ZSR_NO}"/>
+                     <Label  text="{Detail>ZW_I2}"/>
+                     <Label  text="{Detail>ZW_I}"/>
+                     <Label  text="{Detail>ZW_T_ED}"/>
+                     <Label  text="{Detail>ZW_G1}"/>
+                     <Label  text="{Detail>ZW_G2}"/>
+                     <Label  text="{Detail>ZW_G3}"/>
+                     <Label  text="{Detail>ZW_G4}"/>
+                 
+                     
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+
+
+          <Table
+            id="Detail_Other"
+           width="50%"
+          fixedLayout="false"
+          items="{Detail>/}"
+             
+           
+            alternateRowColors="true"
+        >
+            <headerToolbar>
+                <Toolbar>
+                    <ToolbarSpacer />
+                    <!-- <Button icon="sap-icon://filter" press="onFilter"></Button> -->
+                </Toolbar>
+            </headerToolbar>
+
+            <columns>
+               
+                <Column>
+                    <header >
+                        <Label text="FieldName"  design="Bold"/>
+                    </header>
+                </Column>
+
+                <Column >
+                    <header>
+                        <Label text="Value" design="Bold"/>
+                    </header>
+                </Column>
+               
+            </columns>
+            <items>
+                <ColumnListItem
+                  
+                >
+                    <cells>
+ 
+                     <Label text="{Detail>FieldName}" design="Bold"  />
+                     <Label  text="{Detail>FieldValue}"/>
+                   
+                     
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer />
+                <Button
+                    id="btnDmsImage"
+                    text="Product Image"
+                    press="onDmsImage"
+                    type="Accept"
+                    icon="sap-icon://image-viewer"
+                />
+                
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

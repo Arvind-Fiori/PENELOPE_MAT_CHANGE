@@ -1,0 +1,123 @@
+{
+    "_version": "1.1.0",
+    "sap.app": {
+        "id": "arvind.pp.penelope.matchange",
+        "type": "application",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "i18n": "i18n/i18n.properties",
+        "title": "Approve / Reject Material Change",
+        "description": "Approve / Reject Material Change",
+        "dataSources": {
+            "penelopeMatChange": {
+                "uri": "/sap/opu/odata/sap/ZPP_PENELOPE_MATCHANGE_SRV/",
+                "type": "OData",
+                
+                "settings": {
+                    "odataVersion": "2.0"  
+                }
+            }
+        }
+       
+    },
+    "sap.ui": {
+        "fullWidth": true,
+        "technology": "UI5",
+        "deviceTypes": {
+            "desktop": true,
+            "phone": true,
+            "tablet": true
+        },
+        "supportedThemes": [
+            "sap_fiori_3"
+        ]
+    },
+    "sap.ui5": {
+        "dependencies": {
+            "minUI5Version": "1.130.8",
+            "libs": {
+                "sap.m": {
+                    "minVersion": "1.130.8"
+                },
+                "sap.ui.layout": {
+                    "minVersion": "1.130.8"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "arvind.pp.penelope.matchange.View.App",
+            "type": "XML",
+            "id": "idAppCon"
+        },
+        "routing": {
+            "config": {
+                "viewPath": "arvind.pp.penelope.matchange.View",
+                "viewType": "XML",
+                "controlId": "idAppCon",
+                "clearControlAggregation": true
+            },
+            "routes": [
+                {
+                    "name": "init",
+                    "pattern": "",
+                    "target": "1st"
+                },
+                {
+                    "name": "Detail",
+                    "pattern": "toDetail/{ReqNO}/{SubReq}/{TabName}/{FabName}",
+                    "target": "2nd"
+                },
+                {
+                    "name": "DMS",
+                    "pattern": "toDMS/{FabName}",
+                    "target": "3rd"
+                }
+
+
+            ],
+            "targets": {
+                "1st": {
+                    "viewName": "AppRej",
+                    "controlAggregation": "pages",
+                    "viewId": "idView1"
+                },
+                "2nd": {
+                    "viewName": "Detail",
+                    "controlAggregation": "pages",
+                    "viewId": "idView2"
+                },
+                
+                "3rd": {
+                    "viewName": "DMS",
+                    "controlAggregation": "pages",
+                    "viewId": "idView3"
+                }
+            }
+        },
+
+        "models": {
+            "":{
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "dataSource": "penelopeMatChange",
+                "settings": {
+                    "useBatch": false
+
+                }
+            },
+            "i18n":{
+                "type": "sap.ui.model.resource.ResourceModel",
+                "preload": true,
+                "settings": {"bundleUrl": "i18n/i18n.properties"}
+                
+
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        }
+      
+
+    }
+}

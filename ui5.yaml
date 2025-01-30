@@ -1,0 +1,12 @@
+specVersion: "4.0"
+metadata:
+  name: zpp_penelope_mat_change
+type: application
+server:
+  customMiddleware:
+  - name: fiori-tools-proxy
+    afterMiddleware: compression
+    configuration:
+      backend:
+      - path: /sap
+        url: http://algdcgwdap.arvind.com:8000/

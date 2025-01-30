@@ -1,0 +1,31 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    controllerName="arvind.pp.penelope.matchange.Controller.DMS"
+>
+    <Page
+        title="Product Image "
+        xmlns:core="sap.ui.core"
+        showNavButton="true"
+        navButtonPress="onBack"
+    >
+
+    <Image id="DMS"  width="98%" height="98%"/>
+
+     <footer>
+            <Toolbar>
+                <ToolbarSpacer />
+                <Button
+                    id="btnBack"
+                    text="Back"
+                    press="onBack"
+                    type="Accept"
+                    icon="sap-icon://nav-back"
+                />
+                
+            </Toolbar>
+        </footer>
+    </Page>
+    </mvc:View>

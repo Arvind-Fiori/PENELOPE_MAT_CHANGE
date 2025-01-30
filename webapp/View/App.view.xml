@@ -1,0 +1,4 @@
+<mvc:View xmlns:mvc ="sap.ui.core.mvc" xmlns="sap.m" controllerName="arvind.pp.penelope.matchange.Controller.App">
+    <App id="idAppCon" />
+    
+</mvc:View> 
