@@ -60,7 +60,7 @@
             "routes": [
                 {
                     "name": "init",
-                    "pattern": "",
+                    "pattern": "{UID}",
                     "target": "1st"
                 },
                 {

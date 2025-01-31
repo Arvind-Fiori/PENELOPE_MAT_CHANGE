@@ -16,7 +16,14 @@ sap.ui.define(
             oLocalModel: "",
             oModel : "",
             RHM: function (oEvent) {
+                debugger;
+                const oFilter = [];
                 var that = this;
+                var sUId = oEvent.getParameter("arguments").UID;
+               
+                var oUID = new sap.ui.model.Filter("ZuniqueId", "EQ", sUId);
+                 oFilter.push(oUID);
+                
                 oModel = this.getOwnerComponent().getModel();               
                 var oJson = new sap.ui.model.json.JSONModel();
                 debugger;
@@ -41,7 +48,7 @@ sap.ui.define(
                 //     }
 
                 // });
-                const oFilter = [];
+               
                 var EntitySet = '/MaterialChangeLogSet';
                 oDataCall.callGetOdata(oModel , oFilter , EntitySet )
                 .then(function (responce) {

@@ -111,12 +111,12 @@
                     }
 
                      }" />
-                    <Label text="{MaterialChangeLog>ZlastChangeTime}"/>
-                     <!-- <Label text="{
-                     path : 'LocalMaterialChangeLog>ZlastChangeTime',
+                    <!-- <Label text="{MaterialChangeLog>ZlastChangeTime}"/> -->
+                     <Text text="{
+                     path : 'MaterialChangeLog>ZlastChangeTime',
                      type: 'sap.ui.model.odata.type.Time',
-      formatOptions: { style: 'short' }
-                 }"/> -->
+      formatOptions: { style: 'medium' }
+                 }"/>
                     <Label text="{MaterialChangeLog>ZtableName}"/>
                     <Label text="{MaterialChangeLog>ZitemType}"/>
                        <Label text="{MaterialChangeLog>ZrequestNo}"/>
