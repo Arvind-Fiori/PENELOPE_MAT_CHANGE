@@ -76,9 +76,17 @@ sap.ui.define(
                 if (ent == 'A')
                    
                     {
+                        var oBusy = new sap.m.BusyDialog({
+                            title : "Updating Data",
+                            text : "Please Wait...."
+        
+                        });
+
+                        oBusy.open();
                         var EntitySet = '/ZDetil_WP2Set';
                     oDataCall.callGetOdata(oModel, oFilter, EntitySet)
                         .then(function (responce) {
+                            oBusy.close();
                             debugger;
                             oJson.setData(responce.results);
                             // oJson_creditlimit = oJson;
@@ -90,6 +98,7 @@ sap.ui.define(
 
                         })
                         .catch(function (Error, sPath) {
+                            oBusy.close();
                             debugger;
                             MessageBox.error("Error in Processing");
 

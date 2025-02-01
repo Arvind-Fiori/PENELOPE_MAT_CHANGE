@@ -23,6 +23,29 @@ sap.ui.define(
                 
             })
 
+        },
+        UpdateCall:function(oModel , EntitySet , Payload )
+        {
+            return new Promise(function(resolve,reject){
+                
+                // oModel.read("/MaterialChangeLogSet",  {
+                    oModel.update(EntitySet, Payload, {
+                        
+                    success: function (Request) {
+                      
+                        resolve(Request);
+                       
+                    },
+                    error: function (Error ) {
+                      
+                        reject(Error);
+                        
+                    }
+
+                }) 
+                
+            })
+
         }
      }   
     });

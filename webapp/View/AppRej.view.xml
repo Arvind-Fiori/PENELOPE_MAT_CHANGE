@@ -82,6 +82,11 @@
                         <Label text="Item Type" />
                     </header>
                 </Column>
+                      <Column>
+                    <header>
+                        <Label text="Status" />
+                    </header>
+                </Column>
                 <Column>
                     <header>
                         <Label text="Request ID" />
@@ -119,6 +124,7 @@
                  }"/>
                     <Label text="{MaterialChangeLog>ZtableName}"/>
                     <Label text="{MaterialChangeLog>ZitemType}"/>
+                    <Label text="{MaterialChangeLog>ZapprovalStatus}"/>
                        <Label text="{MaterialChangeLog>ZrequestNo}"/>
                 
                      
@@ -140,7 +146,7 @@
                 <Button
                     id="btnReject"
                     text="Reject"
-                    press="onApprove"
+                    press="onReject"
                     type="Reject"
                     icon="sap-icon://decline"
                 />
