@@ -67,17 +67,17 @@
                         <Label text="Last Change" />
                     </header>
                 </Column>
-                <Column >
+                <Column minScreenWidth="Desktop">
                     <header >
                         <Label text="Last Change Time" />
                     </header>
                 </Column>
-                <Column >
+                <Column minScreenWidth="Desktop">
                     <header>
                         <Label text="Table Name" />
                     </header>
                 </Column>
-                <Column>
+                <Column minScreenWidth="Desktop">
                     <header>
                         <Label text="Item Type" />
                     </header>
@@ -101,7 +101,7 @@
                     <cells>
  
                     <Label  text="{MaterialChangeLog>ZwFn}"/>
-                    <Label text="{MaterialChangeLog>WPi}"/>
+                    <Label text="{MaterialChangeLog>PM2}"/>
                     <Label text="{MaterialChangeLog>ZfieldName}"/>
                     <Label text="{MaterialChangeLog>ZoldData}"/>
                     <Label text="{MaterialChangeLog>ZnewData}"/>

@@ -37,22 +37,29 @@
                 </Column>
                  <Column >
                     <header>
-                        <Label text="WOVENS PATTERN IDENT" />
+                    <Label text="Wovens Pattern Ident" />
+                        <!-- <Label text="WOVENS PATTERN IDENT" /> -->
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="YARN IDENTIFIER" />
+                        <!-- <Label text="YARN IDENTIFIER" /> -->
+                        
+                        <Label text="Yarn Identifier" />
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="YARN REFERENCE" />
+                        <!-- <Label text="YARN REFERENCE" /> -->
+                        
+                        <Label text="Yarn Reference" />
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="YARN MATERIAL CODE" />
+                    
+                        <Label text="Yarn Material" />
+                        <!-- <Label text="YARN MATERIAL CODE" /> -->
                     </header>
                 </Column>
                 <Column >
@@ -77,12 +84,13 @@
                 </Column>
                 <Column >
                     <header>
-                        <Label text="TOTAL ENDS" />
+                        <Label text="Total Ends" />
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="ENDS PER REPEAT" />
+                    <Label text="Ends Per Repeat" />
+                        <!-- <Label text="ENDS PER REPEAT" /> -->
                     </header>
                 </Column>
                 <Column >
@@ -147,9 +155,11 @@
             </items>
         </Table>
         </ScrollContainer>
+         <ScrollContainer  width="100%" horizontal="true" vertical="true" focusable="true">
          <Table
             id="Detail_WP3"
             
+            fixedLayout = "false"
           
           items="{Detail>/}"
              
@@ -173,7 +183,9 @@
 
                 <Column >
                     <header>
-                        <Label text="WOVENS PATTERN IDENTIFIER" />
+                    
+                        <Label text="Wovens Pattern Identifier" />
+                        <!-- <Label text="WOVENS PATTERN IDENTIFIER" /> -->
                     </header>
                 </Column>
                 <Column >
@@ -183,17 +195,21 @@
                 </Column>
                 <Column >
                     <header>
-                        <Label text="YARN IDENTIFIER" />
+                    
+                        <Label text="Yarn Identifier" />
+                        <!-- <Label text="YARN IDENTIFIER" /> -->
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="YARN REFERENCE" />
+                    
+                        <Label text="Yarn Reference" />
+                        <!-- <Label text="YARN REFERENCE" /> -->
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="YARN ENDS" />
+                        <Label text="Yarn Ends" />
                     </header>
                 </Column>
                 <Column >
@@ -240,8 +256,8 @@
                 </ColumnListItem>
             </items>
         </Table>
-
-
+</ScrollContainer>
+<ScrollContainer  width="100%" horizontal="true" vertical="true" focusable="true">
           <Table
             id="Detail_Other"
            width="50%"
@@ -287,6 +303,7 @@
                 </ColumnListItem>
             </items>
         </Table>
+        </ScrollContainer>
         <footer>
             <Toolbar>
                 <ToolbarSpacer />

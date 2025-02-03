@@ -11,10 +11,12 @@
         showNavButton="true"
         navButtonPress="onBack"
     >
+    
+<ScrollContainer  width="100%" horizontal="true" vertical="true" focusable="true">
+        <Image id="DMS" />
+</ScrollContainer>        
 
-    <Image id="DMS"  />
-
-     <footer>
+        <footer>
             <Toolbar>
                 <ToolbarSpacer />
                 <Button
@@ -24,8 +26,7 @@
                     type="Accept"
                     icon="sap-icon://nav-back"
                 />
-                
             </Toolbar>
         </footer>
     </Page>
-    </mvc:View>
+</mvc:View>
