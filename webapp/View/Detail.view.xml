@@ -10,7 +10,31 @@
         xmlns:core="sap.ui.core"
         showNavButton="true"
         navButtonPress="onBack"
+        
     >
+     <customHeader>
+            <Bar>
+                <contentLeft>
+                <!-- <Button icon="sap-icon://nav-back" id="btnback"></Button> -->
+                </contentLeft>
+                <contentMiddle>
+                    <HBox
+                        class="header"
+                        width="100%"
+                    >
+                    <!-- <Button icon="sap-icon://nav-back" id="btnback"  press ="onBack"></Button> -->
+                    <!-- <Button text="" id="btnback"  press ="onBack"></Button> -->
+                        <Label id="LblMatDetls" class="clsMatDetls"
+                            text="Material Details"
+                            width="100%"
+                            
+                            
+                        />
+                    </HBox>
+                </contentMiddle>
+            </Bar>
+        </customHeader>
+
     <ScrollContainer  width="100%" horizontal="true" vertical="true" focusable="true">
         <Table
             id="Detail_WP2"
@@ -21,23 +45,18 @@
            
             alternateRowColors="true"
         >
-            <headerToolbar>
-                <Toolbar>
-                    <ToolbarSpacer />
-                    <!-- <Button icon="sap-icon://filter" press="onFilter"></Button> -->
-                </Toolbar>
-            </headerToolbar>
+           
 
             <columns>
                
                 <Column >
                     <header>
-                        <Label text="Fabric Name" />
+                        <Label text="Fabric Name" id="DFN1"/>
                     </header>
                 </Column>
                  <Column >
                     <header>
-                    <Label text="Wovens Pattern Ident" />
+                    <Label text="Wovens Pattern Ident" id="DWPI1"/>
                         <!-- <Label text="WOVENS PATTERN IDENT" /> -->
                     </header>
                 </Column>
@@ -45,82 +64,82 @@
                     <header>
                         <!-- <Label text="YARN IDENTIFIER" /> -->
                         
-                        <Label text="Yarn Identifier" />
+                        <Label text="Yarn Identifier" id="DYI1"/>
                     </header>
                 </Column>
                 <Column >
                     <header>
                         <!-- <Label text="YARN REFERENCE" /> -->
                         
-                        <Label text="Yarn Reference" />
+                        <Label text="Yarn Reference" id="DYR1"/>
                     </header>
                 </Column>
                 <Column >
                     <header>
                     
-                        <Label text="Yarn Material" />
+                        <Label text="Yarn Material" id="DYM1"/>
                         <!-- <Label text="YARN MATERIAL CODE" /> -->
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="Resultant Count" />
+                        <Label text="Resultant Count" id="DRC1"/>
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="SHADE 1" />
+                        <Label text="SHADE 1" id="DS11"/>
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="SHADE 2" />
+                        <Label text="SHADE 2" id="DS21"/>
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="SHADE 3" />
+                        <Label text="SHADE 3" id="DS31"/>
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="Total Ends" />
+                        <Label text="Total Ends" id="DTE1"/>
                     </header>
                 </Column>
                 <Column >
                     <header>
-                    <Label text="Ends Per Repeat" />
+                    <Label text="Ends Per Repeat" id="DEPR1"/>
                         <!-- <Label text="ENDS PER REPEAT" /> -->
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="Yarn percentage" />
+                        <Label text="Yarn percentage" id="DYP1"/>
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="Selvedge Included" />
+                        <Label text="Selvedge Included" id="DSI1"/>
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="Exact Commercial Count" />
+                        <Label text="Exact Commercial Count" id="DECC1"/>
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="Yarn Material Composition" />
+                        <Label text="Yarn Material Composition" id="DYMC1"/>
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="Yarn Description" />
+                        <Label text="Yarn Description" id="DYD1"/>
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="Spinning Process" />
+                        <Label text="Spinning Process" id="DSP1"/>
                     </header>
                 </Column>
 
@@ -157,8 +176,9 @@
         </ScrollContainer>
          <ScrollContainer  width="100%" horizontal="true" vertical="true" focusable="true">
          <Table
+         
             id="Detail_WP3"
-            
+           
             fixedLayout = "false"
           
           items="{Detail>/}"
@@ -166,70 +186,65 @@
            
             alternateRowColors="true"
         >
-            <headerToolbar>
-                <Toolbar>
-                    <ToolbarSpacer />
-                    <!-- <Button icon="sap-icon://filter" press="onFilter"></Button> -->
-                </Toolbar>
-            </headerToolbar>
+          
 
             <columns>
                
                 <Column >
                     <header>
-                        <Label text="Fabric Name" />
+                        <Label text="Fabric Name" id="DFN2"/>
                     </header>
                 </Column>
 
                 <Column >
                     <header>
                     
-                        <Label text="Wovens Pattern Identifier" />
+                        <Label text="Wovens Pattern Identifier" id="DWPI2"/>
                         <!-- <Label text="WOVENS PATTERN IDENTIFIER" /> -->
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="Serial Number" />
+                        <Label text="Serial Number"  id="DSN2"/>
                     </header>
                 </Column>
                 <Column >
                     <header>
                     
-                        <Label text="Yarn Identifier" />
+                        <Label text="Yarn Identifier" id="DYI2"/>
                         <!-- <Label text="YARN IDENTIFIER" /> -->
                     </header>
                 </Column>
                 <Column >
                     <header>
                     
-                        <Label text="Yarn Reference" />
+                        <Label text="Yarn Reference" id="DYR2"/>
                         <!-- <Label text="YARN REFERENCE" /> -->
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="Yarn Ends" />
+                        <Label text="Yarn Ends" id="DYE2"/>
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="GROUP 1" />
+                        <Label text="GROUP 1" id="DG12"/>
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="GROUP 2" />
+                        <Label text="GROUP 2" id="DG22"/>
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="GROUP 3" />
+                        <Label text="GROUP 3" id="DG32"/>
                     </header>
                 </Column>
                 <Column >
                     <header>
-                        <Label text="GROUP 4" />
+                        <Label text="GROUP 4" id="DG42"/>
                     </header>
                 </Column>
               
@@ -263,28 +278,23 @@
            width="50%"
           fixedLayout="false"
           items="{Detail>/}"
-             
+           sticky="ColumnHeaders" 
            
             alternateRowColors="true"
         >
-            <headerToolbar>
-                <Toolbar>
-                    <ToolbarSpacer />
-                    <!-- <Button icon="sap-icon://filter" press="onFilter"></Button> -->
-                </Toolbar>
-            </headerToolbar>
+        
 
             <columns>
                
                 <Column>
                     <header >
-                        <Label text="FieldName"  design="Bold"/>
+                        <Label text="FieldName"  design="Bold" id="DFN"/>
                     </header>
                 </Column>
 
                 <Column >
                     <header>
-                        <Label text="Value" design="Bold"/>
+                        <Label text="Value" design="Bold" id="DV"/>
                     </header>
                 </Column>
                
@@ -307,13 +317,21 @@
         <footer>
             <Toolbar>
                 <ToolbarSpacer />
-                <Button
+                 <Button
                     id="btnDmsImage"
                     text="Product Image"
                     press="onDmsImage"
                     type="Accept"
                     icon="sap-icon://image-viewer"
                 />
+                 <Button
+                    id="btnFooterBack"
+                    text="Back"
+                    press="onBack"
+                    type="Accept"
+                    icon="sap-icon://nav-back"
+                />
+               
                 
             </Toolbar>
         </footer>

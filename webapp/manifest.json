@@ -45,6 +45,13 @@
                 }
             }
         },
+        "resources": {
+	  "css": [
+		{
+		  "uri": "css/style.css"
+		}
+	  ]
+	},
         "rootView": {
             "viewName": "arvind.pp.penelope.matchange.View.App",
             "type": "XML",

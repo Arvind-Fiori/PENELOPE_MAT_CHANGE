@@ -127,8 +127,12 @@ sap.ui.define(
 
                     });
                 }
-
-
+                debugger;
+                // var oTable = this.getView().byId("Detail_WP3");
+	            // var aSticky = oTable.getSticky();     
+                // //  || [];
+                //  aSticky.push("ColumnHeaders");
+                // oTable.setSticky(aSticky);
                 // this.getView().byId("Detail_WP2").setVisible(false);
             },
             onDmsImage:function(oEvent){

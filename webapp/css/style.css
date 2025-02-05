@@ -1,0 +1,101 @@
+tr[data-mydata="E"]{
+    
+
+       background: rgb(245, 220, 220) !important;  
+       /* box-shadow: inset 0px 0px 0 6px #c0392b;  */
+      /* color: red !important;  */ 
+     
+    } 
+    
+
+
+ 
+       /* tr[data-mydata="A"]{
+    background: #c7f1bb !important;
+    }
+    tr[data-mydata="R"]{
+        background-color: #a4f78b  !important;
+       
+    }     */
+    .oldData{
+        
+        color:rgb(243, 134, 134);
+    }
+    
+    .newData{
+       
+        color:green;
+    }
+    #__component0---idView1--TblFabName-text , #__component0---idView1--PK2-text
+    , #__component0---idView1--FN-text, #__component0---idView1--PK2-text,
+    #__component0---idView1--OD-text, #__component0---idView1--ND-text,
+    #__component0---idView1--DES-text , #__component0---idView1--LC-text,
+    #__component0---idView1--LCT-text , #__component0---idView1--TN-text,
+    #__component0---idView1--IT-text , #__component0---idView1--STS-text,
+    #__component0---idView1--RI-text  
+    , #__component0---idView2--DV-text , #__component0---idView2--DFN-text,
+    #__component0---idView2--DFN2-text , #__component0---idView2--DWPI2-text,
+    #__component0---idView2--DSN2-text, #__component0---idView2--DYI2-text,
+    #__component0---idView2--DG12-text,#__component0---idView2--DYE2-text,
+    #__component0---idView2--DG12-text, #__component0---idView2--DG22-text,
+    #__component0---idView2--DG32-text, #__component0---idView2--DG42-text ,
+    #__component0---idView2--DYR2-text,
+
+    #__component0---idView2--DFN1-text , #__component0---idView2--DWPI1-text ,
+    #__component0---idView2--DYI1-text , #__component0---idView2--DYR1-text ,
+    #__component0---idView2--DYM1-text , #__component0---idView2--DRC1-text ,
+    #__component0---idView2--DS11-text , #__component0---idView2--DS21-text ,
+    #__component0---idView2--DS31-text , #__component0---idView2--DTE1-text ,
+    #__component0---idView2--DEPR1-text , #__component0---idView2--DYP1-text ,
+    #__component0---idView2--DSI1-text , #__component0---idView2--DECC1-text ,
+    #__component0---idView2--DYMC1-text , #__component0---idView2--DYD1-text ,
+    #__component0---idView2--DSP1-text
+    {
+        color:maroon;
+        font-size: medium;
+       
+    }
+    /* #__component0---idView1--cl1{
+        background-color: white;
+
+    } */
+    .header {
+       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        background-color:maroon;
+        text-align: center;
+        left: 20%; 
+        align-items: center;
+        align-self: center;
+        
+    }
+    #__button0{
+
+        background-color: maroon;
+    }
+    #__component0---idView2--LblMatDetls-text    {
+        font-size: large;
+        font-weight: bolder;    
+        color: white;
+        text-align: center;
+        align-items: center;
+
+    }
+    
+    #__component0---idView1--hdr-text , #__component0---idView3--LBLIMAGE-text{
+       
+        font-size: large;
+        font-weight: bolder;    
+        color: white;
+        text-align: center;
+        align-items: center;
+            
+        /* text-align: center;
+        color: white;
+        text-align: center;
+        color: white;
+        align-items: center;
+        align-self: center;
+         */
+    }
+
+   

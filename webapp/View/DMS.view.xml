@@ -11,7 +11,28 @@
         showNavButton="true"
         navButtonPress="onBack"
     >
-    
+     <customHeader>
+            <Bar>
+                <contentLeft>
+                <!-- <Button icon="sap-icon://nav-back" id="btnback"></Button> -->
+                </contentLeft>
+                <contentMiddle>
+                    <HBox
+                        class="header"
+                        width="100%"
+                    >
+                    <!-- <Button icon="sap-icon://nav-back" id="btnbackDMS"  press ="onBack"></Button> -->
+                    <!-- <Button text="" id="btnback"  press ="onBack"></Button> -->
+                        <Label id="LBLIMAGE" class="LBLIMAGE"
+                            text="Material Image"
+                            width="100%"
+                            
+                            
+                        />
+                    </HBox>
+                </contentMiddle>
+            </Bar>
+        </customHeader>
 <ScrollContainer  width="100%" horizontal="true" vertical="true" focusable="true">
         <Image id="DMS" />
 </ScrollContainer>        

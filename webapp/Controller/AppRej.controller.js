@@ -11,15 +11,16 @@ sap.ui.define(
         return baseController.extend("arvind.pp.penelope.matchange.Controller.AppRej", {
             onInit() {
 
-                //oPage = this.getView().byId("idPage");
                 this.oRouter = this.getOwnerComponent().getRouter();
                 this.oRouter.getRoute("init").attachMatched(this.RHM, this);
             },
             oLocalModel: "",
             oModel: "",
-            
+          
             upindex: "",
             RHM: function (oEvent) {
+                debugger;
+                // sap.ui.core.Core().byId("idPage").addTitle("HELLO");
                 debugger;
                 const oFilter = [];
                 var that = this;
@@ -55,8 +56,8 @@ sap.ui.define(
 
                 var EntitySet = '/MaterialChangeLogSet';
                 var oBusy = new sap.m.BusyDialog({
-                    title : "Loading Data",
-                    text : "Please Wait...."
+                    title: "Loading Data",
+                    text: "Please Wait...."
 
                 });
                 oBusy.open();
@@ -89,34 +90,77 @@ sap.ui.define(
 
             },
             onSelectionChange: function (oEvent) {
+                debugger;
+                var sSelected = "";
+                var sSelectedMessage = "";
+                var oTableData = this.getView().byId("MatChangeData").getModel("MaterialChangeLog").getData();
                 var oSelectLine = "";
                 var oSelectedItem = oEvent.getParameters("MatChangeData").listItems;
                 for (let index = 0; index < oSelectedItem.length; index++) {
+                    sSelectedMessage = "";
                     const element = oSelectedItem[index];
+                    sSelected = element.getSelected();
+
                     if (element.getSelected() == true) {
 
                         var sStatus = element.getBindingContext("MaterialChangeLog").getProperty("ZapprovalStatus");
                         if (sStatus == "A") {
                             oSelectLine = "X";
+                            sSelectedMessage = "X";
                             element.setSelected(false);
-                    
+
                         }
                         if (sStatus == "R") {
                             oSelectLine = "X";
+                            sSelectedMessage = "X";
                             element.setSelected(false);
-                        
+
                         }
 
+
+
+                    }
+                    if (oEvent.getParameters().selectAll != true) {
+                        if (sSelectedMessage != "X") {
+                            var sreqno = element.getBindingContext("MaterialChangeLog").getProperty("ZrequestNo");
+                            var sPM2 = element.getBindingContext("MaterialChangeLog").getProperty("PM2");
+                            var sZwFn = element.getBindingContext("MaterialChangeLog").getProperty("ZwFn");
+
+                            for (let index = 0; index < oTableData.length; index++) {
+                                //   if (sTabname == oTableData[index].ZtableName) {
+                                if (sreqno == oTableData[index].ZrequestNo) {
+                                    if (sPM2 == oTableData[index].PM2) {
+                                        if (sZwFn == oTableData[index].ZwFn) {
+
+
+                                            this.getView().byId("MatChangeData").getItems()[index].setSelected(sSelected);
+                                        }
+
+                                    }
+                                }
+
+                                //  }
+
+
+
+
+                            }
+                        }
                     }
                 }
-                if (oSelectLine == "X")
-                {
+
+
+                if (oSelectLine == "X") {
                     MessageBox.error("You have Selected Approved / Rejected LineItem");
                     return;
 
                 }
+                else {
 
-                
+
+                }
+
+
             },
             onBack: function () {
 
@@ -148,6 +192,7 @@ sap.ui.define(
             cnt: 0,
             ss: 0,
             updateStatue: function (Status) {
+                debugger;
                 var that = this;
 
                 oModel = this.getOwnerComponent().getModel();
@@ -165,12 +210,15 @@ sap.ui.define(
                 var vError = 0;
                 var vMessage = "";
                 var oBusy = new sap.m.BusyDialog({
-                    title : "Updating Data",
-                    text : "Please Wait...."
+                    title: "Updating Data",
+                    text: "Please Wait...."
 
                 });
-                
+                //  var oSendjson = new sap.ui.model.json.JSONModel();
+                //  oSendjson.addData("A"="1","B"="2","C"="3");
+                // oSendjson.push("A"="4","B"="5","C"="6");
                 for (let i = 0; i < sSelectedcnt.length; i++) {
+                    
                     var sPath = sSelectedcnt[i].getBindingContextPath();
                     var sIndex = sPath.split('/')[1];
                     this.upindex = sPath;
@@ -181,9 +229,9 @@ sap.ui.define(
                     oJson.ZapprovalStatus = Status;
                     // var EntitySet = '/MaterialChangeLogSet(ZrequestNo="' + sReqNo + '",ZsubSerialNo="' + sSubReqNo + '")';
                     var EntitySet = "/MaterialChangeLogSet(ZrequestNo='" + sReqNo + "',ZsubSerialNo='" + sSubReqNo + "')";
-                    
+
                     debugger;
-                   
+
                     oBusy.open();
                     oDataCall.UpdateCall(oModel, EntitySet, oJson)
                         .then(function (responce) {
@@ -213,7 +261,7 @@ sap.ui.define(
 
 
                                 }
-                                vMessage = "Data Updated :" + vSuccess + " Error Record : " + vError ;
+                                vMessage = "Data Updated :" + vSuccess + " Error Record : " + vError;
                                 MessageToast.show(vMessage);
 
                             }

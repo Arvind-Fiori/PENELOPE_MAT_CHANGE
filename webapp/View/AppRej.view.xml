@@ -6,133 +6,166 @@
     controllerName="arvind.pp.penelope.matchange.Controller.AppRej"
 >
     <Page
-        title="Approve / Reject Material Change"
+     
+        id="idPage"
         xmlns:core="sap.ui.core"
-        showNavButton="true"
-        navButtonPress="onBack"
     >
-     <ScrollContainer  width="100%" horizontal="true" vertical="true" focusable="true">
-        <Table
-            id="MatChangeData"
-            sticky="ColumnHeaders"
-            itemPress="onDetailPress"
-          items="{MaterialChangeLog>/}"
-             mode="MultiSelect"
-                 fixedLayout = "false"
-            selectionChange="onSelectionChange"
-            alternateRowColors="true"
+        <customHeader>
+            <Bar>
+                <contentMiddle>
+                    <HBox
+                        class="header"
+                        width="100%"
+                    >
+                        <Label
+                            text="Approve / Reject Material Change"
+                            width="100%"
+                            id="hdr"
+                            class="MainHeaderTitle"
+                        />
+                    </HBox>
+                </contentMiddle>
+            </Bar>
+        </customHeader>
+
+        <ScrollContainer
+            width="100%"
+            horizontal="true"
+            vertical="true"
+            focusable="true"
         >
-            <headerToolbar>
-                <Toolbar>
-                    <ToolbarSpacer />
-                    <!-- <Button icon="sap-icon://filter" press="onFilter"></Button> -->
-                </Toolbar>
-            </headerToolbar>
+            <Table
+                id="MatChangeData"
+                sticky="ColumnHeaders"
+                itemPress="onDetailPress"
+                items="{MaterialChangeLog>/}"
+                mode="MultiSelect"
+                fixedLayout="false"
+                selectionChange="onSelectionChange"
+                alternateRowColors="true"
+            >
+                <columns>
+                    <Column class="Lable" id="cl1">
+                        <header>
+                            <Label text="Fabric Name" class="Lable" id="TblFabName"/>
+                        </header>
+                    </Column>
 
-            <columns >
-               
-                <Column >
-                    <header >
-                        <Label text="Fabric Name" />
-                    </header>
-                </Column>
+                    <Column>
+                        <header>
+                            <Label
+                                id="PK2"
+                                text="Primary Key 2"
+                            />
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="Field Name" id="FN" />
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="Old Data" id="OD" />
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="New Data" id="ND"/>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="Designer" id="DES" />
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="Last Change" id="LC" />
+                        </header>
+                    </Column>
+                    <Column minScreenWidth="Desktop">
+                        <header>
+                            <Label text="Last Change Time" id="LCT" />
+                        </header>
+                    </Column>
+                    <Column minScreenWidth="Desktop">
+                        <header>
+                            <Label text="Table Name" id="TN"/>
+                        </header>
+                    </Column>
+                    <Column minScreenWidth="Desktop">
+                        <header>
+                            <Label text="Item Type" id="IT"/>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="Status" id="STS"/>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="Request ID" id="RI"/>
+                        </header>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem
+                        press="onDetailPress"
+                        type="Active"
+                    >
+                        <customData>
+                            <core:CustomData
+                                key="mydata"
+                                value="{MaterialChangeLog>ZapprovalStatus}"
+                                writeToDom="true"
+                            />
+                        </customData>
 
-                <Column >
-                    <header>
-                        <Label id = "PK2" text="Primary Key 2" />
-                    </header>
-                </Column>
-                <Column >
-                    <header>
-                        <Label text="Field Name" />
-                    </header>
-                </Column>
-                <Column >
-                    <header>
-                        <Label text="Old Data" />
-                    </header>
-                </Column>
-                <Column >
-                    <header>
-                        <Label text="New Data" />
-                    </header>
-                </Column>
-                <Column>
-                    <header>
-                        <Label text="Designer" />
-                    </header>
-                </Column>
-                <Column>
-                    <header>
-                        <Label text="Last Change" />
-                    </header>
-                </Column>
-                <Column minScreenWidth="Desktop">
-                    <header >
-                        <Label text="Last Change Time" />
-                    </header>
-                </Column>
-                <Column minScreenWidth="Desktop">
-                    <header>
-                        <Label text="Table Name" />
-                    </header>
-                </Column>
-                <Column minScreenWidth="Desktop">
-                    <header>
-                        <Label text="Item Type" />
-                    </header>
-                </Column>
-                      <Column>
-                    <header>
-                        <Label text="Status" />
-                    </header>
-                </Column>
-                <Column>
-                    <header>
-                        <Label text="Request ID" />
-                    </header>
-                </Column>
-            </columns>
-            <items>
-                <ColumnListItem
-                    press="onDetailPress"
-                    type="Active"
-                >
-                    <cells>
- 
-                    <Label  text="{MaterialChangeLog>ZwFn}"/>
-                    <Label text="{MaterialChangeLog>PM2}"/>
-                    <Label text="{MaterialChangeLog>ZfieldName}"/>
-                    <Label text="{MaterialChangeLog>ZoldData}"/>
-                    <Label text="{MaterialChangeLog>ZnewData}"/>
-                    <Label text="{MaterialChangeLog>Zdesigner}"/>
-                    <!-- <Label text="{MaterialChangeLog>ZlastChangeDt}"/> -->
+                        <cells>
+                            <Label text="{MaterialChangeLog>ZwFn}" />
+                            <Label text="{MaterialChangeLog>PM2}" />
+                            <Label text="{MaterialChangeLog>ZfieldName}" />
+                            <Label
+                                text="{MaterialChangeLog>ZoldData}"
+                                class="oldData"
+                            />
+                            <Label
+                                text="{MaterialChangeLog>ZnewData}"
+                                class="newData"
+                            />
+                            <Label text="{MaterialChangeLog>Zdesigner}" />
+                            <!-- <Label text="{MaterialChangeLog>ZlastChangeDt}"/> -->
 
-                     <Label text="{
+                            <Label
+                                text="{
                      path : 'MaterialChangeLog>ZlastChangeDt',
                     type: 'sap.ui.model.type.DateTime',
 				formatOptions: {
 					pattern: 'dd.MM.yyyy' 
                     }
 
-                     }" />
-                    <!-- <Label text="{MaterialChangeLog>ZlastChangeTime}"/> -->
-                     <Text text="{
+                     }"
+                            />
+                            <!-- <Label text="{MaterialChangeLog>ZlastChangeTime}"/> -->
+                            <Text
+                                text="{
                      path : 'MaterialChangeLog>ZlastChangeTime',
                      type: 'sap.ui.model.odata.type.Time',
       formatOptions: { style: 'medium' }
-                 }"/>
-                    <Label text="{MaterialChangeLog>ZtableName}"/>
-                    <Label text="{MaterialChangeLog>ZitemType}"/>
-                    <Label text="{MaterialChangeLog>ZapprovalStatus}"/>
-                       <Label text="{MaterialChangeLog>ZrequestNo}"/>
-                
-                     
-                    </cells>
-                </ColumnListItem>
-            </items>
-        </Table>
-         </ScrollContainer>
+
+                 }"
+                            />
+                            <Label text="{MaterialChangeLog>ZtableName}" />
+                            <Label text="{MaterialChangeLog>ZitemType}" />
+                            <Label text="{MaterialChangeLog>ZapprovalStatus}" />
+                            <Label text="{MaterialChangeLog>ZrequestNo}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </ScrollContainer>
         <footer>
             <Toolbar>
                 <ToolbarSpacer />
