@@ -1,0 +1,12 @@
+{
+    "empTab":
+    {
+        "empId": 1002,
+        "empName": "Trivedi",
+        "empSalary": 2000,
+        "currency": "USD",
+        "Smoker": false,
+        "married": "M",
+        "rating": "2"
+    }
+}

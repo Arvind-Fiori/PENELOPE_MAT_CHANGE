@@ -16,8 +16,17 @@ sap.ui.define(
             },
             oLocalModel: "",
             oModel: "",
-          
+
             upindex: "",
+            sendData: {
+                "data": [{
+                    "ReqNo": "",
+                    "SubSR": "",
+                    "ZwFn": "",
+                    "PK2": "",
+                    "Status": "",
+                }]
+            },
             RHM: function (oEvent) {
                 debugger;
                 // sap.ui.core.Core().byId("idPage").addTitle("HELLO");
@@ -128,16 +137,21 @@ sap.ui.define(
 
                             for (let index = 0; index < oTableData.length; index++) {
                                 //   if (sTabname == oTableData[index].ZtableName) {
-                                if (sreqno == oTableData[index].ZrequestNo) {
-                                    if (sPM2 == oTableData[index].PM2) {
-                                        if (sZwFn == oTableData[index].ZwFn) {
-
+                                // if (sreqno == oTableData[index].ZrequestNo) {
+                                if (sPM2 == oTableData[index].PM2) {
+                                    if (sZwFn == oTableData[index].ZwFn) {
+                                        if (oTableData[index].ZapprovalStatus == "E") {
 
                                             this.getView().byId("MatChangeData").getItems()[index].setSelected(sSelected);
                                         }
+                                        if (oTableData[index].ZapprovalStatus == " ") {
 
+                                            this.getView().byId("MatChangeData").getItems()[index].setSelected(sSelected);
+                                        }
                                     }
+
                                 }
+                                // }
 
                                 //  }
 
@@ -191,8 +205,10 @@ sap.ui.define(
             },
             cnt: 0,
             ss: 0,
+            sValueFound: "",
+            sFoundCnt: 0,
             updateStatue: function (Status) {
-                debugger;
+                // 
                 var that = this;
 
                 oModel = this.getOwnerComponent().getModel();
@@ -201,9 +217,10 @@ sap.ui.define(
                 this.oSelectedItem = this.getView().byId("MatChangeData").getItems();
                 var sSelectedcnt = this.getView().byId("MatChangeData").getSelectedItems();
                 this.ss = sSelectedcnt.length;
+                this.ss = 0;
                 this.cnt = 0;
                 if (sSelectedcnt == 0) {
-                    MessageBox.error("Please Selected any one Item");
+                    MessageBox.error("Please Select any one Item");
                     return;
                 }
                 var vSuccess = 0;
@@ -214,11 +231,12 @@ sap.ui.define(
                     text: "Please Wait...."
 
                 });
-                //  var oSendjson = new sap.ui.model.json.JSONModel();
-                //  oSendjson.addData("A"="1","B"="2","C"="3");
-                // oSendjson.push("A"="4","B"="5","C"="6");
+
+
+                debugger;
                 for (let i = 0; i < sSelectedcnt.length; i++) {
-                    
+
+
                     var sPath = sSelectedcnt[i].getBindingContextPath();
                     var sIndex = sPath.split('/')[1];
                     this.upindex = sPath;
@@ -227,82 +245,141 @@ sap.ui.define(
                     var sReqNo = oJson.ZrequestNo;
                     var sSubReqNo = oJson.ZsubSerialNo;
                     oJson.ZapprovalStatus = Status;
-                    // var EntitySet = '/MaterialChangeLogSet(ZrequestNo="' + sReqNo + '",ZsubSerialNo="' + sSubReqNo + '")';
-                    var EntitySet = "/MaterialChangeLogSet(ZrequestNo='" + sReqNo + "',ZsubSerialNo='" + sSubReqNo + "')";
 
+                    this.sValueFound = "";
+                    for (let index = 0; index < this.sendData.data.length; index++) {
+
+                        const element = this.sendData.data[index];
+                        if (oJson.ZwFn == element.ZwFn) {
+                            if (oJson.PM2 == element.PK2) 
+                                
+                                {
+                                this.sValueFound = "X";
+
+                                break;
+
+                            }
+
+                        }
+
+                    }
+                    if (this.sValueFound != "X") {
+                        this.sFoundCnt = this.sFoundCnt + 1;
+                        this.sendData.data[this.sFoundCnt] = {
+                            "ReqNo": oJson.ZrequestNo,
+                            "SubSR": oJson.ZsubSerialNo,
+                            "ZwFn": oJson.ZwFn,
+                            "PK2": oJson.PM2,
+                            "Status": oJson.ZapprovalStatus,
+                        };
+
+                    }
                     debugger;
+                    if (this.sValueFound != "X") {
+                        this.ss = this.ss + 1;
+                        // var EntitySet = '/MaterialChangeLogSet(ZrequestNo="' + sReqNo + '",ZsubSerialNo="' + sSubReqNo + '")';
+                        var EntitySet = "/MaterialChangeLogSet(ZrequestNo='" + sReqNo + "',ZsubSerialNo='" + sSubReqNo + "')";
 
-                    oBusy.open();
-                    oDataCall.UpdateCall(oModel, EntitySet, oJson)
-                        .then(function (responce) {
-                            oBusy.close();
-                            that.cnt = that.cnt + 1;
 
-                            vSuccess = vSuccess + 1;
+                        oBusy.open();
+                        oDataCall.UpdateCall(oModel, EntitySet, oJson)
+                            .then(function (responce) {
+                                oBusy.close();
+                                that.cnt = that.cnt + 1;
 
-                            debugger;
-                            //  that.getView().byId("MatChangeData").bindAggregation("items", that.oLocalModel);
-                            // that.getView().setModel(that.oLocalModel, "MaterialChangeLog");
-                            // that.oLocalModel.setProperty('/0', that.jjj);
+                                vSuccess = vSuccess + 1;
 
-                            //  that.oLocalModel.setProperty(that.upindex, that.jjj);
+                                debugger;
+                                //  that.getView().byId("MatChangeData").bindAggregation("items", that.oLocalModel);
+                                // that.getView().setModel(that.oLocalModel, "MaterialChangeLog");
+                                // that.oLocalModel.setProperty('/0', that.jjj);
 
-                            //   that.getView().byId("MatChangeData").getBinding("items").refresh(true);
+                                //  that.oLocalModel.setProperty(that.upindex, that.jjj);
 
-                            if (that.cnt == that.ss) {
+                                //   that.getView().byId("MatChangeData").getBinding("items").refresh(true);
+
+                                if (that.cnt == that.ss) {
+                                    // var listBinding = that.getView().byId("MatChangeData");
+                                    // var leaveModel = listBinding.getModel("MaterialChangeLog");
+                                    // leaveModel.refresh(true);
+                                    // var sSelecteditems = listBinding.getSelectedItems();
+
+                                    // for (let index = 0; index < sSelecteditems.length; index++) {
+                                    //     const element = sSelecteditems[index];
+                                    //     element.setSelected(false);
+
+
+                                    // }
+                                    vMessage = "Data Updated :" + vSuccess + " Error Record : " + vError;
+                                    // MessageToast.show(vMessage);
+                                    MessageBox.information(vMessage, {
+                                        actions: [MessageBox.Action.CLOSE],
+
+                                        onClose: function (sAction) {
+                                            location.reload();
+                                            // MessageToast.show("Action selected: " + sAction);
+                                        },
+                                        dependentOn: that.getView()
+                                    });
+
+                                }
+
+
+
+                            })
+                            .catch(function (Error, sPath) {
+                                oBusy.close();
+                                debugger;
+                                that.cnt = that.cnt + 1;
+                                var reqno = Error.responseText.split("MSG:")[1].split("%")[1];
+                                var subno = Error.responseText.split("MSG:")[1].split("%")[2];
+                                var message = Error.responseText.split("MSG:")[1].split("%")[3];
+                                var listBinding = that.getView().byId("MatChangeData");
+                                var sSelecteditems = listBinding.getSelectedItems();
+                                for (let index = 0; index < sSelecteditems.length; index++) {
+                                    const element = sSelecteditems[index];
+                                    var actIndex = sSelecteditems[index].getBindingContextPath().split("/")[1];
+                                    var odata1 = that.oLocalModel.getData()[actIndex];
+                                    if (reqno == odata1.ZrequestNo) {
+                                        if (subno == odata1.ZsubSerialNo) {
+
+                                            odata1.ZapprovalStatus = 'E'
+                                        }
+
+                                    }
+
+
+                                }
                                 var listBinding = that.getView().byId("MatChangeData");
                                 var leaveModel = listBinding.getModel("MaterialChangeLog");
                                 leaveModel.refresh(true);
-                                var sSelecteditems = listBinding.getSelectedItems();
 
-                                for (let index = 0; index < sSelecteditems.length; index++) {
-                                    const element = sSelecteditems[index];
-                                    element.setSelected(false);
+                                vError = vError + 1;
+                                vMessage = "Succes Record :" + vSuccess + " Error Record : " + vError + ":" + message;
 
+                                //     MessageBox.error(message),{
 
-                                }
-                                vMessage = "Data Updated :" + vSuccess + " Error Record : " + vError;
-                                MessageToast.show(vMessage);
+                                //         actions: ["Manage Products", MessageBox.Action.CLOSE],
+                                //         emphasizedAction: "Manage Products",
+                                //         onClose: function (sAction) {
+                                //             debugger;
+                                //     location.reload();
+                                //     }
 
-                            }
+                                // };
 
+                                MessageBox.error(message, {
+                                    actions: [MessageBox.Action.CLOSE],
 
+                                    onClose: function (sAction) {
+                                        location.reload();
+                                        // MessageToast.show("Action selected: " + sAction);
+                                    },
+                                    dependentOn: that.getView()
+                                });
 
-                        })
-                        .catch(function (Error, sPath) {
-                            oBusy.close();
-                            debugger;
-                            that.cnt = that.cnt + 1;
-                            var reqno = Error.responseText.split("MSG:")[1].split("%")[1];
-                            var subno = Error.responseText.split("MSG:")[1].split("%")[2];
-                            var message = Error.responseText.split("MSG:")[1].split("%")[3];
-                            var listBinding = that.getView().byId("MatChangeData");
-                            var sSelecteditems = listBinding.getSelectedItems();
-                            for (let index = 0; index < sSelecteditems.length; index++) {
-                                const element = sSelecteditems[index];
-                                var actIndex = sSelecteditems[index].getBindingContextPath().split("/")[1];
-                                var odata1 = that.oLocalModel.getData()[actIndex];
-                                if (reqno == odata1.ZrequestNo) {
-                                    if (subno == odata1.ZsubSerialNo) {
-
-                                        odata1.ZapprovalStatus = 'E'
-                                    }
-
-                                }
-
-
-                            }
-                            var listBinding = that.getView().byId("MatChangeData");
-                            var leaveModel = listBinding.getModel("MaterialChangeLog");
-                            leaveModel.refresh(true);
-
-                            vError = vError + 1;
-                            vMessage = "Succes Record :" + vSuccess + " Error Record : " + vError + ":" + message;
-
-                            MessageBox.error(message);
-
-
-                        });
+                            });
+                    }
 
                 }
 
