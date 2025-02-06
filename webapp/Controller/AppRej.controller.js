@@ -144,7 +144,7 @@ sap.ui.define(
 
                                             this.getView().byId("MatChangeData").getItems()[index].setSelected(sSelected);
                                         }
-                                        if (oTableData[index].ZapprovalStatus == " ") {
+                                        if (oTableData[index].ZapprovalStatus == '') {
 
                                             this.getView().byId("MatChangeData").getItems()[index].setSelected(sSelected);
                                         }
