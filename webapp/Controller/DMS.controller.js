@@ -39,27 +39,7 @@ sap.ui.define(
                 var EntitySet = sPathStart+sDMSFile+sPathEnd;
                         // var EntitySet = "/sap/opu/odata/sap/ZPP_PENELOPE_MATCHANGE_SRV/ZMatImageSet('3010209906-2')/$value";
                  this.getView().byId("DMS").setSrc(EntitySet);
-                    // oDataCall.callGetOdata(oModel, oFilter, EntitySet)
-                    //     .then(function (responce) {
-                    //         debugger;
-                    //         oJson.setData(responce.results);
-                    //         // oJson_creditlimit = oJson;
-
-                    //         //    this.getView().setModel(oJson, "CreditLimit");
-                    //         that.oLocalModel = oJson;
-                    //         that.getView().setModel(that.oLocalModel, "DMS");
-                    //         debugger;
-
-                    //     })
-                    //     .catch(function (Error, sPath) {
-                    //         debugger;
-                    //         MessageBox.error("Error in Processing");
-
-                    //     });
- 
-               
-
-                // this.getView().byId("Detail_WP2").setVisible(false);
+                  
             },
             onDmsImage:function(oEvent){
                 debugger;

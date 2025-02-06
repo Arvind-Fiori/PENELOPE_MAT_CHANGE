@@ -35,6 +35,12 @@
         </customHeader>
 <ScrollContainer  width="100%" horizontal="true" vertical="true" focusable="true">
         <Image id="DMS" />
+        	<IllustratedMessage
+							description="Product Image was not found"
+							title="Not Found"
+							illustrationType="sapIllus-ErrorScreen"
+							visible="{= ${/hasError} }">
+						</IllustratedMessage>
 </ScrollContainer>        
 
         <footer>
