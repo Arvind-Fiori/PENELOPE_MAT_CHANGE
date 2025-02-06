@@ -38,8 +38,19 @@ sap.ui.define(
                 var sPathEnd = "')/$value";
                 var EntitySet = sPathStart+sDMSFile+sPathEnd;
                         // var EntitySet = "/sap/opu/odata/sap/ZPP_PENELOPE_MATCHANGE_SRV/ZMatImageSet('3010209906-2')/$value";
-                 this.getView().byId("DMS").setSrc(EntitySet);
+                    
+                        this.getView().byId("DMS").setSrc(EntitySet);
+                        this.getView().byId("idNotFound").setVisible(false);
+                        // this.getView().byId("DMS").setAlt("satyen");
+                 
                   
+            },
+   
+            onError:function(oEvent)
+            {
+                debugger;
+                this.getView().byId("idNotFound").setVisible(true);
+               
             },
             onDmsImage:function(oEvent){
                 debugger;
