@@ -36,7 +36,7 @@
 <ScrollContainer  width="100%" horizontal="true" vertical="true" focusable="true">
         <Image id="DMS" error="onError" densityAware="true" load="onLoad"/>
         	<IllustratedMessage id="idNotFound" 
-							description="Product Image was not found"
+							description="Material Image was not found"
 							title="Not Found"
 							illustrationType="sapIllus-ErrorScreen"
 							>

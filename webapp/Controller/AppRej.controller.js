@@ -24,6 +24,7 @@ sap.ui.define(
                     "SubSR": "",
                     "ZwFn": "",
                     "PK2": "",
+                    "TableName":"",
                     "Status": "",
                 }]
             },
@@ -131,25 +132,27 @@ sap.ui.define(
                     }
                     if (oEvent.getParameters().selectAll != true) {
                         if (sSelectedMessage != "X") {
+                            debugger;
                             var sreqno = element.getBindingContext("MaterialChangeLog").getProperty("ZrequestNo");
                             var sPM2 = element.getBindingContext("MaterialChangeLog").getProperty("PM2");
                             var sZwFn = element.getBindingContext("MaterialChangeLog").getProperty("ZwFn");
-
+                            var sTabName = element.getBindingContext("MaterialChangeLog").getProperty("ZtableName");
                             for (let index = 0; index < oTableData.length; index++) {
-                                //   if (sTabname == oTableData[index].ZtableName) {
-                                // if (sreqno == oTableData[index].ZrequestNo) {
-                                if (sPM2 == oTableData[index].PM2) {
-                                    if (sZwFn == oTableData[index].ZwFn) {
-                                        if (oTableData[index].ZapprovalStatus == "E") {
+                                if (sTabName == oTableData[index].ZtableName) {
+                                    // if (sreqno == oTableData[index].ZrequestNo) {
+                                    if (sPM2 == oTableData[index].PM2) {
+                                        if (sZwFn == oTableData[index].ZwFn) {
+                                            if (oTableData[index].ZapprovalStatus == "E") {
 
-                                            this.getView().byId("MatChangeData").getItems()[index].setSelected(sSelected);
-                                        }
-                                        if (oTableData[index].ZapprovalStatus == '') {
+                                                this.getView().byId("MatChangeData").getItems()[index].setSelected(sSelected);
+                                            }
+                                            if (oTableData[index].ZapprovalStatus == '') {
 
-                                            this.getView().byId("MatChangeData").getItems()[index].setSelected(sSelected);
+                                                this.getView().byId("MatChangeData").getItems()[index].setSelected(sSelected);
+                                            }
                                         }
+
                                     }
-
                                 }
                                 // }
 
@@ -245,17 +248,16 @@ sap.ui.define(
                     var sReqNo = oJson.ZrequestNo;
                     var sSubReqNo = oJson.ZsubSerialNo;
                     oJson.ZapprovalStatus = Status;
-
+                    debugger;
                     this.sValueFound = "";
                     for (let index = 0; index < this.sendData.data.length; index++) {
 
                         const element = this.sendData.data[index];
                         if (oJson.ZwFn == element.ZwFn) {
-                            if (oJson.PM2 == element.PK2) 
-                                
-                                {
-                                this.sValueFound = "X";
-
+                            if (oJson.PM2 == element.PK2) {
+                                if (oJson.ZtableName == element.TableName) {
+                                    this.sValueFound = "X";
+                                }
                                 break;
 
                             }
@@ -270,6 +272,7 @@ sap.ui.define(
                             "SubSR": oJson.ZsubSerialNo,
                             "ZwFn": oJson.ZwFn,
                             "PK2": oJson.PM2,
+                            "TableName": oJson.ZtableName,
                             "Status": oJson.ZapprovalStatus,
                         };
 

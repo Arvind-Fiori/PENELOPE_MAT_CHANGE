@@ -4,9 +4,12 @@ sap.ui.define(
         "sap/ui/model/Filter",
         "sap/ui/model/FilterOperator",
         "arvind/pp/penelope/matchange/Controller/oDataCall",
-        "sap/ui/core/routing/History"
+        "sap/ui/core/routing/History",
+          "sap/m/MessageBox",
+        "sap/m/MessageToast"
+
         ],
-    function (baseController, Fragment, Filter, FilterOp, oDataCall , History) {
+    function (baseController, Fragment, Filter, FilterOp, oDataCall , History, MessageBox, MessageToast) {
         return baseController.extend("arvind.pp.penelope.matchange.Controller.AppRej", {
             onInit() {
 
@@ -56,23 +59,31 @@ sap.ui.define(
                 // if (sTabName == 'ZPP_WP2') or (sTabName == 'ZPP_WP3')
                 // {    
                 var ent = 'A';
-                if (sTabName == 'ZPP_WP2')
+                if ( sTabName == 'ZPP_WP2' || sTabName == 'ZPP_WP3')
                 {
                     ent = 'A';
+                }else
+                {
+                    ent = 'B';
 
-                }   
+                }
+                  
                 
-                if (sTabName == 'ZPP_WP3')
-                    {
-                        ent = 'A';
-    
-                    }  
-                
-                    if (sTabName == 'ZPP_WP1')
-                        {
-                            ent = 'B';
-        
-                        }       
+               
+                // if (sTabName != 'ZPP_WP1' || sTabName == 'ZPP_K_K10' || sTabName == 'ZPP_K_K5') 
+
+                // if (sTabName == 'ZPP_WP1' || sTabName == 'ZPP_K_K10' || sTabName == 'ZPP_K_K5') 
+                          
+            //   if (sTabName == 'ZPP_K_K10') 
+            //                 {
+            //                     ent = 'B';
+            
+            //                 }       
+            //     if (sTabName == 'ZPP_K_K5')
+            //                 {
+            //                     ent = 'B';
+            
+            //                 }       
                 if (ent == 'A')
                    
                     {
@@ -100,12 +111,12 @@ sap.ui.define(
                         .catch(function (Error, sPath) {
                             oBusy.close();
                             debugger;
-                            MessageBox.error("Error in Processing");
+                            MessageBox.error(Error.responseText.split("MSG:")[1]);
 
                         });
 
                 }
-                if (sTabName == 'ZPP_WP1')
+                if (ent == 'B')
                 {
                   
                     var EntitySet = '/ZDetailOtherSet';
@@ -123,7 +134,9 @@ sap.ui.define(
                     })
                     .catch(function (Error, sPath) {
                         debugger;
-                        MessageBox.error("Error in Processing");
+                        // MessageBox.error("Error in Processing");
+                        MessageToast.show(Error.responseText.split("MSG:")[1]);
+                        // MessageBox.error(Error.responseText.split("MSG:")[1]);
 
                     });
                 }
