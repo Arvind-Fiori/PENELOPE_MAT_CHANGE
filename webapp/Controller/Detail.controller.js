@@ -11,6 +11,7 @@ sap.ui.define(
         ],
     function (baseController, Fragment, Filter, FilterOp, oDataCall , History, MessageBox, MessageToast) {
         return baseController.extend("arvind.pp.penelope.matchange.Controller.AppRej", {
+            
             onInit() {
 
                 //oPage = this.getView().byId("idPage");
@@ -95,6 +96,7 @@ sap.ui.define(
 
                         oBusy.open();
                         var EntitySet = '/ZDetil_WP2Set';
+                    
                     oDataCall.callGetOdata(oModel, oFilter, EntitySet)
                         .then(function (responce) {
                             oBusy.close();
@@ -111,6 +113,7 @@ sap.ui.define(
                         .catch(function (Error, sPath) {
                             oBusy.close();
                             debugger;
+                            that.oLocalModel.setData([]);
                             MessageBox.error(Error.responseText.split("MSG:")[1]);
 
                         });
@@ -134,9 +137,13 @@ sap.ui.define(
                     })
                     .catch(function (Error, sPath) {
                         debugger;
+                        that.oLocalModel.setData([]);
+                        // that.getView().byId("Detail_Other").getBinding("items").updateBindings(true);
+                        // that.getView().byId("Detail_Other").getBinding("items").refresh(true);
                         // MessageBox.error("Error in Processing");
-                        MessageToast.show(Error.responseText.split("MSG:")[1]);
-                        // MessageBox.error(Error.responseText.split("MSG:")[1]);
+                        // MessageToast.show(Error.responseText.split("MSG:")[1]);
+                        MessageBox.error(Error.responseText.split("MSG:")[1]);
+                        
 
                     });
                 }
@@ -174,7 +181,6 @@ sap.ui.define(
 
             },
             onBack: function () {
-
                 const oHistory = History.getInstance();
                 const sPreviousHash = oHistory.getPreviousHash();
 
