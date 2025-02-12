@@ -68,8 +68,16 @@ sap.ui.define(
                     ent = 'B';
 
                 }
-                  
-                
+                if ( sTabName == 'ZPP_WP1' || sTabName == 'ZPP_WP2' || sTabName == 'ZPP_WP3')  
+                {
+
+                    this.getView().byId("btnDmsImage").setVisible(true);
+                }
+                else
+                {
+                    this.getView().byId("btnDmsImage").setVisible(false);
+
+                }
                
                 // if (sTabName != 'ZPP_WP1' || sTabName == 'ZPP_K_K10' || sTabName == 'ZPP_K_K5') 
 
