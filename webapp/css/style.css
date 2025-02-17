@@ -7,7 +7,8 @@ tr[data-mydata="E"]{
      
     } 
     
-
+   
+     
 
  
        /* tr[data-mydata="A"]{
@@ -17,14 +18,16 @@ tr[data-mydata="E"]{
         background-color: #a4f78b  !important;
        
     }     */
-    .oldData{
+    .oldData   
+    {
         
-        color:rgb(243, 134, 134);
+        color:rgb(243, 134, 134) !important;;
     }
     
-    .newData{
+    .newData
+       {
        
-        color:green;
+        color:green !important;;
     }
     #__component0---idView1--TblFabName-text , #__component0---idView1--PK2-text
     , #__component0---idView1--FN-text, #__component0---idView1--PK2-text,
@@ -49,7 +52,33 @@ tr[data-mydata="E"]{
     #__component0---idView2--DEPR1-text , #__component0---idView2--DYP1-text ,
     #__component0---idView2--DSI1-text , #__component0---idView2--DECC1-text ,
     #__component0---idView2--DYMC1-text , #__component0---idView2--DYD1-text ,
-    #__component0---idView2--DSP1-text
+    #__component0---idView2--DSP1-text,
+
+
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView1--TblFabName-text , #application-PENELOPE_MAT_CHANGE-manage-component---idView1--PK2-text
+    , #application-PENELOPE_MAT_CHANGE-manage-component---idView1--FN-text, #application-PENELOPE_MAT_CHANGE-manage-component---idView1--PK2-text,
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView1--OD-text, #application-PENELOPE_MAT_CHANGE-manage-component---idView1--ND-text,
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView1--DES-text , #application-PENELOPE_MAT_CHANGE-manage-component---idView1--LC-text,
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView1--LCT-text , #application-PENELOPE_MAT_CHANGE-manage-component---idView1--TN-text,
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView1--IT-text , #application-PENELOPE_MAT_CHANGE-manage-component---idView1--STS-text,
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView1--RI-text  
+    , #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DV-text , #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DFN-text,
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DFN2-text , #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DWPI2-text,
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DSN2-text, #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DYI2-text,
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DG12-text,#application-PENELOPE_MAT_CHANGE-manage-component---idView2--DYE2-text,
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DG12-text, #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DG22-text,
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DG32-text, #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DG42-text ,
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DYR2-text,
+
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DFN1-text , #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DWPI1-text ,
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DYI1-text , #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DYR1-text ,
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DYM1-text , #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DRC1-text ,
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DS11-text , #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DS21-text ,
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DS31-text , #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DTE1-text ,
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DEPR1-text , #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DYP1-text ,
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DSI1-text , #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DECC1-text ,
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DYMC1-text , #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DYD1-text ,
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView2--DSP1-text
     {
         color:maroon;
         font-size: medium;
@@ -72,7 +101,8 @@ tr[data-mydata="E"]{
 
         background-color: maroon;
     }
-    #__component0---idView2--LblMatDetls-text    {
+    #__component0---idView2--LblMatDetls-text  ,
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView2--LblMatDetls-text  {
         font-size: large;
         font-weight: bolder;    
         color: white;
@@ -80,7 +110,8 @@ tr[data-mydata="E"]{
         align-items: center;
 
     }
-    
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView1--hdr-text,
+    #application-PENELOPE_MAT_CHANGE-manage-component---idView3--LBLIMAGE-text,
     #__component0---idView1--hdr-text , #__component0---idView3--LBLIMAGE-text{
        
         font-size: large;

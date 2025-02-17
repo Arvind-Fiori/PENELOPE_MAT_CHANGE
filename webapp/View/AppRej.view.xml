@@ -121,17 +121,18 @@
                                 value="{MaterialChangeLog>ZapprovalStatus}"
                                 writeToDom="true"
                             />
+                          
                         </customData>
 
                         <cells>
                             <Label text="{MaterialChangeLog>ZwFn}" />
                             <Label text="{MaterialChangeLog>PM2}" />
                             <Label text="{MaterialChangeLog>ZfieldName}" />
-                            <Label
+                            <Label id="lblOldData"
                                 text="{MaterialChangeLog>ZoldData}"
-                                class="oldData"
+                                class="oldData"                                
                             />
-                            <Label
+                            <Label id="lblNewData"
                                 text="{MaterialChangeLog>ZnewData}"
                                 class="newData"
                             />

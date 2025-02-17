@@ -25,7 +25,7 @@
                     <!-- <Button icon="sap-icon://nav-back" id="btnback"  press ="onBack"></Button> -->
                     <!-- <Button text="" id="btnback"  press ="onBack"></Button> -->
                         <Label id="LblMatDetls" class="clsMatDetls"
-                            text="Material Details"
+                           
                             width="100%"
                             
                             

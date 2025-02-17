@@ -4,9 +4,11 @@ sap.ui.define(
         "sap/ui/model/Filter",
         "sap/ui/model/FilterOperator",
         "arvind/pp/penelope/matchange/Controller/oDataCall",
-        "sap/ui/core/routing/History"
+        "sap/ui/core/routing/History",
+          "sap/m/MessageBox",
+        "sap/m/MessageToast"
         ],
-    function (baseController, Fragment, Filter, FilterOp, oDataCall , History) {
+    function (baseController, Fragment, Filter, FilterOp, oDataCall , History , MessageBox, MessageToast) {
         return baseController.extend("arvind.pp.penelope.matchange.Controller.AppRej", {
             onInit() {
 
@@ -40,7 +42,7 @@ sap.ui.define(
                         // var EntitySet = "/sap/opu/odata/sap/ZPP_PENELOPE_MATCHANGE_SRV/ZMatImageSet('3010209906-2')/$value";
                     
                         this.getView().byId("DMS").setSrc(EntitySet);
-                        this.getView().byId("idNotFound").setVisible(false);
+                        // this.getView().byId("idNotFound").setVisible(false);
                         // this.getView().byId("DMS").setAlt("satyen");
                  
                   
@@ -49,7 +51,9 @@ sap.ui.define(
             onError:function(oEvent)
             {
                 debugger;
-                this.getView().byId("idNotFound").setVisible(true);
+                // this.getView().byId("idNotFound").setVisible(true);
+                MessageBox.error('Image Not Found');
+                this.onBack();
                
             },
             onDmsImage:function(oEvent){

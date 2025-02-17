@@ -29,6 +29,8 @@ sap.ui.define(
                 var sSubReqNo = oEvent.getParameter("arguments").SubReq;
                  sTabName = oEvent.getParameter("arguments").TabName;
                  sDMSFile = oEvent.getParameter("arguments").FabName;
+                 var sText = 'Material Details : ' + sTabName;
+                 this.getView().byId("LblMatDetls").setText(sText);
                 if (sTabName == 'ZPP_WP2') {
                     this.getView().byId("Detail_WP3").setVisible(false);
                     this.getView().byId("Detail_WP2").setVisible(true);

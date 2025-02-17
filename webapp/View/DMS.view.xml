@@ -3,6 +3,7 @@
     xmlns="sap.m"
     xmlns:t="sap.ui.core"
     xmlns:f="sap.ui.layout.form"
+    xmlns:html="http://www.w3.org/1999/xhtml"
     controllerName="arvind.pp.penelope.matchange.Controller.DMS"
 >
     <Page
@@ -35,12 +36,12 @@
         </customHeader>
 <ScrollContainer  width="100%" horizontal="true" vertical="true" focusable="true">
         <Image id="DMS" error="onError" densityAware="true" load="onLoad"/>
-        	<IllustratedMessage id="idNotFound" 
+        	<!-- <IllustratedMessage id="idNotFound" 
 							description="Material Image was not found"
 							title="Not Found"
 							illustrationType="sapIllus-ErrorScreen"
 							>
-						</IllustratedMessage>
+						</IllustratedMessage> -->
 </ScrollContainer>        
 
         <footer>
